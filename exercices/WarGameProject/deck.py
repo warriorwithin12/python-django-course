@@ -1,7 +1,7 @@
 from random import shuffle
 
-from card import Card
-from constants import Constants
+from .card import Card
+from .constants import Constants
 
 class Deck:
     """
@@ -31,16 +31,9 @@ class Deck:
 
     def split_deck(self):
         """
-        Split the deck in two halfs parts.
-        We build the two parts picking one card at a time.
-        Returns tuple with two halfs parts.
+        Split the deck in two halfs parts picking one card at a time.
         """
-        half1 = half2 = []
-        for i in range(int(len(self.cards)/2)):
-            i % 2 == 0 and half1.append(self.cards[i]) or half2.append(self.cards[i+1])
-        return half1, half2
-
+        return self.cards[0:len(self.cards):2], self.cards[1:len(self.cards):2]
 
     def __str__(self):
-        # return "Deck: {}".format(super().__str__(self))
         return "Deck: {}".format(str(self.cards))

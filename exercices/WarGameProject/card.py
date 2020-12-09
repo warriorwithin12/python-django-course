@@ -14,18 +14,13 @@ class Card:
         """
         Returns a strings representing one single card.
         """
-        return "Card: {}, {}".format(self.value, self.suite)
+        return "{}, {}".format(self.value, self.suite)
 
-    def __cmp__(self, other):
+    def compare(self, other):
         """
         Compares two card by value and suite type.
         """
-        if self.value == other.value and self.suite == other.suite:
-            return 0
-        elif self.value > other.value:
-            return 1
-        else:
-            return -1
+        return self.value.__cmp__(other.value)
 
     def __eq__(self, value):
         """

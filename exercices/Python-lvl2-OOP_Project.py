@@ -30,6 +30,7 @@ from WarGameProject.deck import Deck
 from WarGameProject.player import Player
 from WarGameProject.game import Game
 from WarGameProject.hand import Hand
+from WarGameProject.constants import Constants
 
 ######################
 #### GAME PLAY #######
@@ -41,8 +42,8 @@ d = Deck()
 (hand1, hand2) = d.split_deck()
 p1 = Player("ADAN", Hand(hand1))
 p2 = Player("ROG", Hand(hand2))
-print("Player 1:", p1.hand.len())
-print("Player 2:", p2.hand.len())
-game = Game([p1, p2])
+print("Player {} has {} cards".format(p1, p1.hand.len()))
+print("Player {} has {} cards".format(p2, p2.hand.len()))
+game = Game({p1.name: p1, p2.name: p2})
 
 game.play_game(2)

@@ -1,4 +1,4 @@
-from hand import Hand
+from .hand import Hand
 
 class Player:
     """
@@ -10,9 +10,7 @@ class Player:
         self.hand = hand
 
     def play(self, offset):
-        played_cards = []
-        for i in range(offset):
-            played_cards.append(self.hand.remove_card())
+        played_cards = list(map(lambda c: self.hand.remove_card(), range(offset)))
         return played_cards if len(played_cards) > 0 else None
 
     def has_cards(self):
@@ -22,7 +20,7 @@ class Player:
         return self.hand.len() > 0
 
     def __str__(self):
-        return "{} {}".format(self.name, self.hand.len())
+        return self.name
 
     def __del__(self):
         del self.hand
