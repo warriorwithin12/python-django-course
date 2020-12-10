@@ -17,7 +17,7 @@ class Deck:
         self.cards = []
         for card in range(52):
             card = self.pick_card()            
-            while (card in self.cards):
+            while card in self.cards:
                 card = self.pick_card()
             self.cards.append(card)
 

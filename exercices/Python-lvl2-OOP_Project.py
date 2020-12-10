@@ -38,14 +38,14 @@ from WarGameProject.constants import Constants
 print("Welcome to War, let's begin...")
 
 player_name = input("> Enter a player name: ")
-print("Hi player {}!".format(player_name))
-input("> Are you ready to fight over machine ({})? (Press any key)".format(Constants.CPU_PLAYER_NAME))
+print("Hi player {}! Your enemy is the CPU ({})".format(player_name, Constants.CPU_PLAYER_NAME))
 d = Deck()
 (hand1, hand2) = d.split_deck()
 p1 = Player(player_name, Hand(hand1))
 p2 = Player(Constants.CPU_PLAYER_NAME, Hand(hand2))
-print("Player {} has {} cards".format(p1, p1.hand.len()))
-print("Player {} has {} cards".format(p2, p2.hand.len()))
+print("Created player {} with {} cards".format(p1, p1.hand.len()))
+print("Created player {} with {} cards".format(p2, p2.hand.len()))
+input("\n> Ready to fight? (press any key)")
 game = Game({p1.name: p1, p2.name: p2})
 winner = game.play_game()
 
