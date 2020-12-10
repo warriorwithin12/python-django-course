@@ -34,16 +34,22 @@ from WarGameProject.constants import Constants
 
 ######################
 #### GAME PLAY #######
-######################
+######################S
 print("Welcome to War, let's begin...")
 
-# Use the 3 classes along with some logic to play a game of war!
+player_name = input("> Enter a player name: ")
+print("Hi player {}!".format(player_name))
+input("> Are you ready to fight over machine ({})? (Press any key)".format(Constants.CPU_PLAYER_NAME))
 d = Deck()
 (hand1, hand2) = d.split_deck()
-p1 = Player("ADAN", Hand(hand1))
-p2 = Player("ROG", Hand(hand2))
+p1 = Player(player_name, Hand(hand1))
+p2 = Player(Constants.CPU_PLAYER_NAME, Hand(hand2))
 print("Player {} has {} cards".format(p1, p1.hand.len()))
 print("Player {} has {} cards".format(p2, p2.hand.len()))
 game = Game({p1.name: p1, p2.name: p2})
+winner = game.play_game()
 
-game.play_game(2)
+print("\n***********************************************************************")
+print("\t{}".format('CONGRATULATIONS '+ winner.name + '! YOU ARE THE WINNER OF THE WAR!' if winner == p1 else 'OH ... I''M SORRY, YOU LOST THE WAR 🤕'))
+# print("\t{} IS THE WINNER OF WAR!".format(winner))
+print("\n***********************************************************************")
