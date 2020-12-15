@@ -1,2 +1,2 @@
 # python-django-course
-Sources and exercices form Udemy course of Python and Django Framework
+Sources and exercices from Udemy course [Python and Django Full Stack Web Developer Bootcamp](https://www.udemy.com/course/python-and-django-full-stack-web-developer-bootcamp/)
